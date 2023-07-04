@@ -1,0 +1,47 @@
+<div
+  class="keys shadow"
+  [ngStyle]="{
+    background: isActive
+      ? 'linear-gradient(180deg, #42869B, #2A7DA1, #224E91, #00123F)'
+      : 'linear-gradient(30deg, #9ee8ff, #5aceff, #79afff, #2d5fde)'
+  }"
+>
+  <div class="keys__left">
+    <div class="keys__circle">
+      <div class="keys__circle-top">
+        <button (click)="clear()">AC</button>
+        <button (click)="change()">+/-</button>
+        <button (click)="calculatePerc()">%</button>
+      </div>
+      <div class="keys__circle-row">
+        <button (click)="loadCalc('1')">1</button>
+        <button (click)="loadCalc('2')">2</button>
+        <button (click)="loadCalc('3')">3</button>
+      </div>
+      <div class="keys__circle-row">
+        <button (click)="loadCalc('4')">4</button>
+        <button (click)="loadCalc('5')">5</button>
+        <button (click)="loadCalc('6')">6</button>
+      </div>
+      <div class="keys__circle-row">
+        <button (click)="loadCalc('7')">7</button>
+        <button (click)="loadCalc('8')">8</button>
+        <button (click)="loadCalc('9')">9</button>
+      </div>
+      <div class="keys__circle-row">
+        <button (click)="loadCalc('.')">.</button>
+        <button (click)="loadCalc('0')">0</button>
+        <button (click)="loadCalc('00')">00</button>
+      </div>
+    </div>
+  </div>
+  <div class="keys__right">
+    <div class="keys__right-side">
+      <button (click)="loadCalc('/')">÷</button>
+      <button (click)="loadCalc('*')">×</button>
+      <button (click)="loadCalc('-')">-</button>
+      <button (click)="loadCalc('+')">+</button>
+      <button (click)="calculate()" class="keys__right-equal">=</button>
+    </div>
+  </div>
+</div>

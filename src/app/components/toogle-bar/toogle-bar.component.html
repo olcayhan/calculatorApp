@@ -1,0 +1,30 @@
+<div class="main__top-bar">
+    <div
+      class="main__top-toggle"
+      [ngStyle]="{ 'background-color': isActive ? '#1b6a9c' : '#a9dcfd' }"
+    >
+      <button
+        class="main__top-ball"
+        [ngStyle]="{
+          'background-color': isActive ? '#003661' : '#d8eeff',
+          transform: isActive ? 'translateX(54px)' : 'translateX(0)'
+        }"
+        (click)="toggle()"
+      ></button>
+      <img
+        src="../assets/sun-black.svg"
+        [src]="
+          isActive ? '../assets/sun-white.svg' : '../assets/sun-black.svg'
+        "
+        class="main__top-sun"
+        alt="sun-black"
+      />
+      <img
+        [src]="
+          isActive ? '../assets/moon-white.svg' : '../assets/moon-black.svg'
+        "
+        class="main__top-moon"
+        alt="moon-black"
+      />
+    </div>
+  </div>

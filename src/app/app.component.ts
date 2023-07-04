@@ -8,15 +8,14 @@ import { History } from 'src/types';
 })
 export class AppComponent {
   title = 'calculator';
-  
   historyClicked: boolean = false;
   storedValue: string | null = localStorage.getItem('mode');
-
   isActive: boolean = this.storedValue ? JSON.parse(this.storedValue) : false;
   result: string = '';
   value: string = '';
   calculated: boolean = false;
-  history: History[] = [];
+  stored: string | null = localStorage.getItem('history');
+  history: History[] = this.stored ? JSON.parse(this.stored) : [];
 
   toggleScreen(): void {
     this.isActive = !this.isActive;
@@ -54,6 +53,7 @@ export class AppComponent {
     this.calculated = true;
     this.history.push({ value, result });
     if (this.history.length > 3) this.history = this.history.slice(1);
+    localStorage.setItem('history', JSON.stringify(this.history));
   }
 
   getHistory() {

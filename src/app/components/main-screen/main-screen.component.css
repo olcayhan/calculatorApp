@@ -1,0 +1,27 @@
+.screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: end;
+  height: 250px;
+  width: 100%;
+  padding: 30px;
+}
+
+.screen__main {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: end;
+}
+
+.screen_cal {
+  font-size: 20px;
+  font-weight: 600;
+  opacity: 0.75;
+}
+
+.screen_result {
+  font-size: 40px;
+  font-weight: 600;
+}

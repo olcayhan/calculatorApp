@@ -7,161 +7,32 @@
   <div class="main shadow">
     <!-- main top -->
     <div class="main__top">
-      <div class="main__top-bar">
-        <div
-          class="main__top-toggle"
-          [ngStyle]="{ 'background-color': isActive ? '#1b6a9c' : '#a9dcfd' }"
-        >
-          <button
-            class="main__top-ball"
-            [ngStyle]="{
-              'background-color': isActive ? '#003661' : '#d8eeff',
-              transform: isActive ? 'translateX(54px)' : 'translateX(0)'
-            }"
-            (click)="toggleScreen()"
-          ></button>
-          <img
-            src="../assets/sun-black.svg"
-            [src]="
-              isActive ? '../assets/sun-white.svg' : '../assets/sun-black.svg'
-            "
-            class="main__top-sun"
-            alt="sun-black"
-          />
-          <img
-            [src]="
-              isActive ? '../assets/moon-white.svg' : '../assets/moon-black.svg'
-            "
-            class="main__top-moon"
-            alt="moon-black"
-          />
-        </div>
-      </div>
-      <button class="main__top-history" (click)="getHistory()">
-        <img
-          [src]="
-            isActive
-              ? '../assets/history-white.svg'
-              : '../assets/history-black.svg'
-          "
-        />
-      </button>
-    </div>
+      <app-toogle-bar
+        [isActive]="isActive"
+        (toggleScreen)="toggleScreen()"
+      ></app-toogle-bar>
 
-    <!-- main screen -->
-    <div
-      class="screen"
-      [ngStyle]="{
-        color: isActive ? '#fff' : '#111'
-      }"
+      <app-history
+        (getHistory)="getHistory()"
+        [isActive]="isActive"
+      ></app-history>
+    </div>
+    <app-main-screen
+      [isActive]="isActive"
+      [historyClicked]="historyClicked"
+      [history]="history"
+      [value]="value"
+      [result]="result"
     >
-      <div *ngIf="this.historyClicked === true; else elseBlock">
-        <p>History</p>
-        <div class="screen__main" *ngFor="let data of history">
-          <div class="screen_cal">
-            {{ data.value }}
-          </div>
-          <div class="screen_result">
-            {{ data.result }}
-          </div>
-        </div>
-      </div>
+    </app-main-screen>
 
-      <ng-template #elseBlock>
-        <div
-          class="screen__main"
-          [ngStyle]="{
-            color: isActive ? '#fff' : '#111'
-          }"
-        >
-          <div class="screen_cal">
-            {{ value }}
-          </div>
-          <div class="screen_result">
-            {{ result }}
-          </div>
-        </div>
-      </ng-template>
-    </div>
-    <!-- main keys -->
-    <div
-      class="keys shadow"
-      [ngStyle]="{
-        background: isActive
-          ? 'linear-gradient(180deg, #42869B, #2A7DA1, #224E91, #00123F)'
-          : 'linear-gradient(30deg, #9ee8ff, #5aceff, #79afff, #2d5fde)'
-      }"
-    >
-      <div class="keys__left">
-        <div class="keys__circle">
-          <div class="keys__circle-top">
-            <button (click)="clearFunc()">AC</button>
-            <button (click)="changePrefix()">+/-</button>
-            <button (click)="calculatePercentage()">%</button>
-          </div>
-          <div class="keys__circle-row">
-            <button (click)="loadCalculate('1')">1</button>
-            <button (click)="loadCalculate('2')">2</button>
-            <button (click)="loadCalculate('3')">3</button>
-          </div>
-          <div class="keys__circle-row">
-            <button (click)="loadCalculate('4')">4</button>
-            <button (click)="loadCalculate('5')">5</button>
-            <button (click)="loadCalculate('6')">6</button>
-          </div>
-          <div class="keys__circle-row">
-            <button (click)="loadCalculate('7')">7</button>
-            <button (click)="loadCalculate('8')">8</button>
-            <button (click)="loadCalculate('9')">9</button>
-          </div>
-          <div class="keys__circle-row">
-            <button (click)="loadCalculate('.')">.</button>
-            <button (click)="loadCalculate('0')">0</button>
-            <button (click)="loadCalculate('00')">00</button>
-          </div>
-        </div>
-      </div>
-      <div class="keys__right">
-        <div class="keys__right-side">
-          <button (click)="loadCalculate('/')">÷</button>
-          <button (click)="loadCalculate('*')">×</button>
-          <button (click)="loadCalculate('-')">-</button>
-          <button (click)="loadCalculate('+')">+</button>
-          <button (click)="calculateFunc()" class="keys__right-equal">=</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div
-  *ngIf="false"
-  class="d-flex justify-content-center align-items-center w-100 h-100 bg-dark"
->
-  <div class="main shadow">
-    <div class="main__top">
-      <div class="main__top-bar">
-        <div class="main__top-toggle" style="background-color: #1b6a9c">
-          <button
-            class="main__top-ball"
-            style="background-color: #003661; transform: translateX(54px)"
-            (click)="toggleScreen()"
-          ></button>
-          <img
-            src="../assets/sun-white.svg"
-            class="main__top-sun"
-            alt="sun-black"
-          />
-          <img
-            src="../assets/moon-white.svg"
-            class="main__top-moon"
-            alt="moon-black"
-          />
-        </div>
-      </div>
-      <button class="main__top-history">
-        <img src="../assets/history-white.svg" />
-      </button>
-    </div>
+    <app-keys
+      [isActive]="isActive"
+      (clearFunc)="clearFunc()"
+      (changePrefix)="changePrefix()"
+      (calculateFunc)="calculateFunc()"
+      (loadCalculate)="loadCalculate($event)"
+      (calculatePercentage)="calculatePercentage()"
+    ></app-keys>
   </div>
 </div>
