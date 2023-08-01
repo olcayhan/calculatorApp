@@ -1,0 +1,76 @@
+@import "../../vars.scss";
+.keys {
+  @include display(flex, row, center, center);
+  width: 100%;
+  height: 360px;
+  border-radius: 30px;
+  background: var(--secondary-bg);
+}
+
+.keys__left {
+  @include display(flex, column, center, center);
+  width: 75%;
+  > div {
+    @include display(flex, column, space-between, center);
+    width: 100%;
+    > div {
+      @include display(flex, row, space-between, center);
+      width: 80%;
+      padding: 10px;
+      display: flex;
+      &:first-child {
+        width: 80%;
+        background-color: rgba(255, 255, 255, 0.3);
+        padding: 10px;
+        border-radius: 50px;
+        > button {
+          outline: none;
+          border: none;
+          background: transparent;
+          font-weight: 600;
+          font-size: 18px;
+        }
+      }
+      > button {
+        background: rgba(255, 255, 255, 0.5);
+        border: none;
+        outline: none;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        font-weight: 600;
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+.keys__right {
+  @include display(flex, row, center, center);
+  width: 25%;
+  > div {
+    @include display(flex, column, space-between, center);
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 50px;
+    width: 60%;
+    padding-top: 10px;
+    gap: 32px;
+    > button {
+      outline: none;
+      border: none;
+      background: transparent;
+      font-weight: 600;
+      font-size: 20px;
+      &:last-child {
+        background: rgba(255, 255, 255, 0.5);
+        border: none;
+        outline: none;
+        width: 100%;
+        height: 60px;
+        border-radius: 50%;
+        font-size: 20px;
+        font-weight: 600;
+      }
+    }
+  }
+}

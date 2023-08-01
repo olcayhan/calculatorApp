@@ -3,7 +3,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 @Component({
   selector: 'app-keys',
   templateUrl: './keys.component.html',
-  styleUrls: ['./keys.component.css'],
+  styleUrls: ['./keys.component.scss'],
 })
 export class KeysComponent {
   @Input() isActive: boolean = false;

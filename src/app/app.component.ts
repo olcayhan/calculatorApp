@@ -9,8 +9,7 @@ import { History } from 'src/types';
 export class AppComponent {
   title = 'calculator';
   historyClicked: boolean = false;
-  storedValue: string | null = localStorage.getItem('mode');
-  isActive: boolean = this.storedValue ? JSON.parse(this.storedValue) : false;
+  isActive: boolean = false;
   result: string = '';
   value: string = '0';
   calculated: boolean = false;
@@ -19,7 +18,11 @@ export class AppComponent {
 
   toggleScreen(): void {
     this.isActive = !this.isActive;
-    localStorage.setItem('mode', String(this.isActive));
+
+    document.documentElement.setAttribute(
+      'data-theme',
+      this.isActive ? 'dark' : 'light'
+    );
   }
 
   loadCalculate(data: string): void {

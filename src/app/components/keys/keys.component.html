@@ -1,34 +1,27 @@
-<div
-  class="keys shadow"
-  [ngStyle]="{
-    background: isActive
-      ? 'linear-gradient(180deg, #42869B, #2A7DA1, #224E91, #00123F)'
-      : 'linear-gradient(30deg, #9ee8ff, #5aceff, #79afff, #2d5fde)'
-  }"
->
+<div class="keys shadow">
   <div class="keys__left">
-    <div class="keys__circle">
-      <div class="keys__circle-top">
+    <div>
+      <div>
         <button (click)="this.clearFunc.emit()">AC</button>
         <button (click)="this.changePrefix.emit()">+/-</button>
         <button (click)="this.calculatePercentage.emit()">%</button>
       </div>
-      <div class="keys__circle-row">
+      <div>
         <button (click)="this.loadCalculate.emit('1')">1</button>
         <button (click)="this.loadCalculate.emit('2')">2</button>
         <button (click)="this.loadCalculate.emit('3')">3</button>
       </div>
-      <div class="keys__circle-row">
+      <div>
         <button (click)="this.loadCalculate.emit('4')">4</button>
         <button (click)="this.loadCalculate.emit('5')">5</button>
         <button (click)="this.loadCalculate.emit('6')">6</button>
       </div>
-      <div class="keys__circle-row">
+      <div>
         <button (click)="this.loadCalculate.emit('7')">7</button>
         <button (click)="this.loadCalculate.emit('8')">8</button>
         <button (click)="this.loadCalculate.emit('9')">9</button>
       </div>
-      <div class="keys__circle-row">
+      <div>
         <button (click)="this.loadCalculate.emit('.')">.</button>
         <button (click)="this.loadCalculate.emit('0')">0</button>
         <button (click)="this.loadCalculate.emit('00')">00</button>
@@ -36,14 +29,12 @@
     </div>
   </div>
   <div class="keys__right">
-    <div class="keys__right-side">
+    <div>
       <button (click)="this.loadCalculate.emit('/')">÷</button>
       <button (click)="this.loadCalculate.emit('*')">×</button>
       <button (click)="this.loadCalculate.emit('-')">-</button>
       <button (click)="this.loadCalculate.emit('+')">+</button>
-      <button (click)="this.calculateFunc.emit()" class="keys__right-equal">
-        =
-      </button>
+      <button (click)="this.calculateFunc.emit()">=</button>
     </div>
   </div>
 </div>

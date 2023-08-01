@@ -1,0 +1,28 @@
+:root {
+  --main-bg: #fff;
+  --secondary-bg: linear-gradient(30deg, #9ee8ff, #5aceff, #79afff, #2d5fde);
+  --transparent-bg: rgba(255, 255, 255, 0.5);
+  --text-color: black;
+  --img-filter: none;
+}
+
+[data-theme="light"] {
+  --main-bg: #fff;
+  --secondary-bg: linear-gradient(30deg, #9ee8ff, #5aceff, #79afff, #2d5fde);
+  --transparent-bg: rgba(255, 255, 255, 0.5);
+  --text-color: black;
+  --img-filter: none;
+}
+
+[data-theme="dark"] {
+  --main-bg: #333;
+  --secondary-bg: linear-gradient(180deg, #42869b, #2a7da1, #224e91, #00123f);
+  --transparent-bg: rgba(0, 0, 0, 0.255);
+  --text-color: white;
+  --img-filter: brightness(5);
+}
+
+html,
+body {
+  height: 100%;
+}
