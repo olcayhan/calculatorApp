@@ -1,12 +1,11 @@
 <div
-  class="d-flex justify-content-center align-items-center w-100 h-100"
+  class="main"
   [ngStyle]="{
     'background-color': isActive ? '#333' : '#fff'
   }"
 >
-  <div class="main shadow">
-    <!-- main top -->
-    <div class="main__top">
+  <div>
+    <div>
       <app-toogle-bar
         [isActive]="isActive"
         (toggleScreen)="toggleScreen()"

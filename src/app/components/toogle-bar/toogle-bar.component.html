@@ -9,7 +9,7 @@
           'background-color': isActive ? '#003661' : '#d8eeff',
           transform: isActive ? 'translateX(54px)' : 'translateX(0)'
         }"
-        (click)="toggle()"
+        (click)="this.toggleScreen.emit()"
       ></button>
       <img
         src="../assets/sun-black.svg"

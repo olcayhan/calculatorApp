@@ -4,7 +4,7 @@ import { History } from 'src/types';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
   title = 'calculator';
@@ -12,7 +12,7 @@ export class AppComponent {
   storedValue: string | null = localStorage.getItem('mode');
   isActive: boolean = this.storedValue ? JSON.parse(this.storedValue) : false;
   result: string = '';
-  value: string = '';
+  value: string = '0';
   calculated: boolean = false;
   stored: string | null = localStorage.getItem('history');
   history: History[] = this.stored ? JSON.parse(this.stored) : [];
@@ -33,6 +33,11 @@ export class AppComponent {
       (data === '/' || data === '*' || data == '-' || data == '+')
     )
       return;
+
+    if (this.value === '0') {
+      this.value = data;
+      return;
+    }
     this.value = this.value + data;
   }
 
@@ -42,7 +47,7 @@ export class AppComponent {
       !Number(this.value[this.value.length - 1])
     ) {
       this.result = 'Error';
-      this.value = '';
+      this.value = '0';
       return;
     }
     this.result = eval(this.value);
@@ -74,7 +79,7 @@ export class AppComponent {
   }
 
   clearFunc() {
-    this.value = '';
+    this.value = '0';
     this.result = '';
   }
 }

@@ -4,7 +4,7 @@ import { History } from 'src/types';
 @Component({
   selector: 'app-main-screen',
   templateUrl: './main-screen.component.html',
-  styleUrls: ['./main-screen.component.css'],
+  styleUrls: ['./main-screen.component.scss'],
 })
 export class MainScreenComponent {
   @Input() isActive: boolean = false;

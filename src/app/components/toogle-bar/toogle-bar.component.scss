@@ -1,0 +1,35 @@
+@import "../../vars.scss";
+
+.main__top-bar {
+  @include display(flex, row, center, center);
+  margin-top: 10px;
+  > div {
+    @include display(flex, row, space-between, center);
+    position: relative;
+    width: 122px;
+    height: 44px;
+    background-color: #a9dcfd;
+    border-radius: 50px;
+  }
+}
+
+.main__top-ball {
+  position: absolute;
+  border: none;
+  outline: none;
+  width: 68px;
+  height: 44px;
+  border-radius: 50px;
+  background-color: #d8eeff;
+}
+
+.main__top-sun {
+  pointer-events: none;
+  z-index: 5;
+  padding-left: 15px;
+}
+.main__top-moon {
+  pointer-events: none;
+  z-index: 5;
+  padding-right: 15px;
+}

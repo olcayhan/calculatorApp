@@ -1,18 +1,18 @@
+@import "../../vars.scss";
+
 .screen {
   display: flex;
   flex-direction: column;
   justify-content: end;
   align-items: end;
+  @include display(flex, column, end, end);
   height: 250px;
   width: 100%;
   padding: 30px;
 }
 
 .screen__main {
-  display: flex;
-  flex-direction: column;
-  justify-content: end;
-  align-items: end;
+  @include display(flex, column, end, end);
 }
 
 .screen_cal {

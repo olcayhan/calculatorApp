@@ -1,4 +1,4 @@
-<button class="main__top-history" (click)="getHist()">
+<button class="main__top-history" (click)="this.getHistory.emit()">
   <img
     [src]="
       isActive ? '../assets/history-white.svg' : '../assets/history-black.svg'
