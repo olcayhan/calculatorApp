@@ -1,9 +1,4 @@
-<div
-  class="screen"
-  [ngStyle]="{
-    color: isActive ? '#fff' : '#111'
-  }"
->
+<div class="screen">
   <div *ngIf="this.historyClicked === true; else elseBlock">
     <p>History</p>
     <div class="screen__main" *ngFor="let data of history">
@@ -17,12 +12,7 @@
   </div>
 
   <ng-template #elseBlock>
-    <div
-      class="screen__main"
-      [ngStyle]="{
-        color: isActive ? '#fff' : '#111'
-      }"
-    >
+    <div class="screen__main">
       <div class="screen_cal">
         {{ value }}
       </div>

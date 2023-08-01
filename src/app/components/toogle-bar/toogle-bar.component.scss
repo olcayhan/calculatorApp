@@ -3,24 +3,23 @@
 .main__top-bar {
   @include display(flex, row, center, center);
   margin-top: 10px;
-  > div {
+  & > div {
     @include display(flex, row, space-between, center);
+    @include size(122px, 44px);
     position: relative;
-    width: 122px;
-    height: 44px;
-    background-color: #a9dcfd;
+    background-color: var(--toggle-bg);
     border-radius: 50px;
+    & > button {
+      @include size(68px, 44px);
+      transform: var(--toggle-transform);
+      transition: all 0.5s ease;
+      position: absolute;
+      border: none;
+      outline: none;
+      border-radius: 50px;
+      background-color: var(--toggle-color);
+    }
   }
-}
-
-.main__top-ball {
-  position: absolute;
-  border: none;
-  outline: none;
-  width: 68px;
-  height: 44px;
-  border-radius: 50px;
-  background-color: #d8eeff;
 }
 
 .main__top-sun {
@@ -28,6 +27,7 @@
   z-index: 5;
   padding-left: 15px;
 }
+
 .main__top-moon {
   pointer-events: none;
   z-index: 5;

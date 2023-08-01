@@ -1,14 +1,10 @@
 @import "../../vars.scss";
 
 .screen {
-  display: flex;
-  flex-direction: column;
-  justify-content: end;
-  align-items: end;
   @include display(flex, column, end, end);
-  height: 250px;
-  width: 100%;
+  @include size(100%, 250px);
   padding: 30px;
+  color: var(--text-color);
 }
 
 .screen__main {
@@ -16,12 +12,10 @@
 }
 
 .screen_cal {
-  font-size: 20px;
-  font-weight: 600;
+  @include font(20px, 600);
   opacity: 0.75;
 }
 
 .screen_result {
-  font-size: 40px;
-  font-weight: 600;
+  @include font(40px, 600);
 }

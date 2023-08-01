@@ -1,25 +1,28 @@
 :root {
   --main-bg: #fff;
   --secondary-bg: linear-gradient(30deg, #9ee8ff, #5aceff, #79afff, #2d5fde);
-  --transparent-bg: rgba(255, 255, 255, 0.5);
-  --text-color: black;
-  --img-filter: none;
+  --toggle-bg: #a9dcfd;
+  --toggle-color: #d8eeff;
+  --toggle-transform: translateX(0);
+  --text-color: #111;
 }
 
 [data-theme="light"] {
   --main-bg: #fff;
   --secondary-bg: linear-gradient(30deg, #9ee8ff, #5aceff, #79afff, #2d5fde);
-  --transparent-bg: rgba(255, 255, 255, 0.5);
-  --text-color: black;
-  --img-filter: none;
+  --toggle-bg: #a9dcfd;
+  --toggle-color: #d8eeff;
+  --toggle-transform: translateX(0);
+  --text-color: #111;
 }
 
 [data-theme="dark"] {
   --main-bg: #333;
   --secondary-bg: linear-gradient(180deg, #42869b, #2a7da1, #224e91, #00123f);
-  --transparent-bg: rgba(0, 0, 0, 0.255);
-  --text-color: white;
-  --img-filter: brightness(5);
+  --toggle-bg: #1b6a9c;
+  --toggle-color: #003661;
+  --toggle-transform: translateX(54px);
+  --text-color: #fff;
 }
 
 html,
