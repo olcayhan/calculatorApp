@@ -32,12 +32,14 @@ export class AppComponent {
     }
 
     if (
-      !Number(this.value[this.value.length - 1]) &&
-      (data === '/' || data === '*' || data == '-' || data == '+')
-    )
-      return;
+      isNaN(Number(this.value[this.value.length - 1])) &&
+      (data === '*' || data == '-' || data == '+' || data == '/')
+    ) {
+      this.value = this.value.slice(0, -1);
+    }
 
-    if (this.value === '0') {
+    if (this.value === '0' && (!isNaN(Number(data)) || data === '00')) {
+      data === '00' ? (data = '0') : data;
       this.value = data;
       return;
     }
@@ -47,7 +49,7 @@ export class AppComponent {
   calculateFunc(): void {
     if (
       this.result === undefined ||
-      !Number(this.value[this.value.length - 1])
+      isNaN(Number(this.value[this.value.length - 1]))
     ) {
       this.result = 'Error';
       this.value = '0';
@@ -74,9 +76,13 @@ export class AppComponent {
   }
 
   changePrefix() {
-    if (Number(this.value) && Number(this.value) > 0) {
+    if (
+      !isNaN(Number(this.value)) &&
+      Number(this.value) >= 0 &&
+      this.value[0] !== '-'
+    ) {
       this.value = '-' + this.value;
-    } else if (Number(this.value) < 0) {
+    } else if (Number(this.value) < 0 || this.value[0] === '-') {
       this.value = this.value.slice(1);
     }
   }
