@@ -7,5 +7,5 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class ToogleBarComponent {
   @Input() isActive: boolean = false;
-  @Output() toggleScreen = new EventEmitter<any>();
+  @Output() toggleScreen = new EventEmitter<string>();
 }

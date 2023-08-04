@@ -11,5 +11,5 @@ export class MainScreenComponent {
   @Input() historyClicked: boolean = false;
   @Input() history: History[] = [];
   @Input() value: string = '';
-  @Input() result: string = '';
+  @Input() result: string | number = '';
 }

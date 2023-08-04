@@ -1,5 +1,11 @@
 import { Component } from '@angular/core';
 import { History } from 'src/types';
+import { evaluateExpression } from '../utils/eval';
+
+enum Theme {
+  Light = 'light',
+  Dark = 'dark',
+}
 
 @Component({
   selector: 'app-root',
@@ -10,59 +16,70 @@ export class AppComponent {
   title = 'calculator';
   historyClicked: boolean = false;
   isActive: boolean = false;
-  result: string = '';
+  result: number | string = '';
   value: string = '0';
   calculated: boolean = false;
   stored: string | null = localStorage.getItem('history');
   history: History[] = this.stored ? JSON.parse(this.stored) : [];
+  currentTheme: Theme = Theme.Light;
 
   toggleScreen(): void {
     this.isActive = !this.isActive;
-
-    document.documentElement.setAttribute(
-      'data-theme',
-      this.isActive ? 'dark' : 'light'
-    );
+    this.currentTheme = this.isActive ? Theme.Dark : Theme.Light;
+    this.setTheme(this.currentTheme);
   }
 
-  loadCalculate(data: string): void {
+  setTheme(theme: string): void {
+    document.documentElement.setAttribute('data-theme', theme);
+  }
+
+  loadCalculate(input: string): void {
     if (this.calculated) {
       this.clearFunc();
       this.calculated = false;
     }
 
-    if (
-      isNaN(Number(this.value[this.value.length - 1])) &&
-      (data === '*' || data == '-' || data == '+' || data == '/')
-    ) {
+    const lastCharacter = this.value[this.value.length - 1];
+
+    if (isNaN(Number(lastCharacter)) && ['*', '-', '+', '/'].includes(input)) {
       this.value = this.value.slice(0, -1);
     }
 
-    if (this.value === '0' && (!isNaN(Number(data)) || data === '00')) {
-      data === '00' ? (data = '0') : data;
-      this.value = data;
+    if (this.value === '0' && (!isNaN(Number(input)) || input === '00')) {
+      input = input === '00' ? '0' : input;
+      this.value = input;
       return;
     }
-    this.value = this.value + data;
+    this.value += input;
+  }
+
+  handleError(): void {
+    this.result = 'Error';
+    this.value = '0';
   }
 
   calculateFunc(): void {
-    if (
-      this.result === undefined ||
-      isNaN(Number(this.value[this.value.length - 1]))
-    ) {
-      this.result = 'Error';
-      this.value = '0';
+    const lastCharacter = this.value[this.value.length - 1];
+
+    if (this.result === undefined || isNaN(Number(lastCharacter))) {
+      this.handleError();
       return;
     }
-    this.result = eval(this.value);
-    this.setHistory(this.value, this.result);
+
+    try {
+      this.result = evaluateExpression(this.value);
+      this.setHistory(this.value, this.result);
+    } catch (error) {
+      this.handleError();
+    }
   }
 
-  setHistory(value: string, result: string) {
+  setHistory(value: string, result: number) {
     this.calculated = true;
     this.history.push({ value, result });
-    if (this.history.length > 3) this.history = this.history.slice(1);
+    if (this.history.length > 3) {
+      this.history = this.history.slice(1);
+    }
     localStorage.setItem('history', JSON.stringify(this.history));
   }
 
@@ -71,7 +88,7 @@ export class AppComponent {
   }
 
   calculatePercentage() {
-    this.result = String(eval(this.value) / 100);
+    this.result = evaluateExpression(this.value) / 100;
     this.setHistory(this.value, this.result);
   }
 
