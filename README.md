@@ -1,27 +1,39 @@
-# Calculator
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.3.
+# Calculator App
 
-## Development server
+This is a simple calculator app that allows you to perform basic mathematical operations between two numbers. You can perform addition, subtraction, multiplication, and division operations.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Features
 
-## Code scaffolding
+- Perform addition operation
+- Perform subtraction operation
+- Perform multiplication operation
+- Perform division operation
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## How to Use
 
-## Build
+1. Open the application.
+2. Enter two numbers in the input fields.
+3. Select the operator you want to use (Addition, subtraction, multiplication, or division).
+4. Click on the "Calculate" button.
+5. The result will be displayed on the screen.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Requirements
 
-## Running unit tests
+- This application requires a web browser to run.
+- No internet connection is needed.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+## Installation
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+1. Clone this repository to your local machine.
+2. Navigate to the project directory.
+3. Open the `index.html` file in a web browser.
 
-## Further help
+## Contribution
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- If you would like to contribute, please open an issue describing your suggestions or submit a pull request.
+
+## License
+
+This project is licensed under the [MIT License](https://github.com/olcayhan/calculatorApp/blob/main/LICENSE).
